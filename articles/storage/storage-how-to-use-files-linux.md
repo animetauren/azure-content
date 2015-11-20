@@ -89,6 +89,10 @@ If you use Open SUSE 13.2, you can mount the file as below:
     Filesystem  Size  Used Avail Use% Mounted on
     //myaccountname.file.core.windows.net/mysharename  5.0T   64K  5.0T   1% /mnt/mountpoint
 
+>[AZURE.NOTE] All file shares that are being planned on being mounted must be in the same Azure Region as the the Linux VM that are you mounting the file share to.
+
+<!-- -->
+
 ## Manage the file share ##
 
 The [Azure preview portal](https://portal.azure.com/) now provides a user interface for managing Azure File Storage. You can perform the following actions from your web browser:
