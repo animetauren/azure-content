@@ -580,8 +580,17 @@ This section assumes that you have already installed a RHEL virtual machine in V
 
         # sudo yum install WALinuxAgent
         # sudo chkconfig waagent on
-
-11.	Do not create swap space on the OS disk:
+        
+11.	If you cannot download the rpm package and need to build the package manually. Refer to the steps in [RPM Build ReadMe](https://github.com/Azure/WALinuxAgent/tree/2.0/rpm). 
+ 
+  **Note:** Make sure to have the following packages Python-setuptools and Sudo by running the following commands:
+        
+	```
+ 	# yum install python-setuptools
+ 	# yum install sudo.x86_64
+ 	```
+ 	
+12.	Do not create swap space on the OS disk:
 
     The Azure Linux Agent can automatically configure swap space using the local resource disk that is attached to the VM after provisioning on Azure. Note that the local resource disk is a temporary disk, and might be emptied when the VM is deprovisioned. After installing the Azure Linux Agent (see previous step), modify the following parameters in `/etc/waagent.conf` appropriately:
 
@@ -591,17 +600,17 @@ This section assumes that you have already installed a RHEL virtual machine in V
         ResourceDisk.EnableSwap=y
         ResourceDisk.SwapSizeMB=2048    ## NOTE: set this to whatever you need it to be.
 
-12.	Unregister the subscription (if necessary) by running the following command:
+13.	Unregister the subscription (if necessary) by running the following command:
 
         # sudo subscription-manager unregister
 
-13.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
+14.	Run the following commands to deprovision the virtual machine and prepare it for provisioning on Azure:
 
         # sudo waagent -force -deprovision
         # export HISTSIZE=0
         # logout
 
-14.	Shut down the VM, and convert the VMDK file to VHD file.
+15.	Shut down the VM, and convert the VMDK file to VHD file.
 
     First convert the image to raw format:
 
