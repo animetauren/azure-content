@@ -202,6 +202,12 @@ The Azure Linux Agent can automatically configure swap space using the local res
         # wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
         # rpm -ivh epel-release-7-5.noarch.rpm
 
+10b	If you cannot download the rpm package and need to build the package manually. Refer to the steps in [RPM Build ReadMe](https://github.com/Azure/WALinuxAgent/tree/2.0/rpm). 
+
+**Note:** Make sure to have the following packages installed or else the build will fail.
+	# yum install python-setuptools
+	# yum install sudo.x86_64
+
 11.	Install the Azure Linux Agent by running the following command:
 
         # sudo yum install WALinuxAgent
